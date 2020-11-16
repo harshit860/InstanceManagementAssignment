@@ -88,7 +88,7 @@ const Dashboard = () => {
     return <div className="singlerow" style={{ backgroundColor: "#e9f0f0" }}>
       <p style={{ width: '10%' }}>{value.id}</p>
       <p style={{ width: '10%' }}>{value.name}</p>
-      <p style={{ width: '30%' }}>{(currency) ? ('$'):('₹')} {value.costPerHour}</p>
+      <p style={{ width: '30%' }}>{(currency) ? ('$'):('₹')} {currency ? (value.costPerHour) : ((value.costPerHour * 1000/15).toFixed(2))}</p>
       <p style={{ width: '20%', color: (value.status == 'stopped') ? ('red') : ('#005a3c') }}>{value.status}</p>
       <p style={{ width: '20%' }}>{(value.status === 'stopped') ? (<button id="start" onClick={() => handleSwitch(value.id)}>start</button>) : (<button id="stop" onClick={() => handleSwitch(value.id)}>stop</button>)}</p>
     </div>
